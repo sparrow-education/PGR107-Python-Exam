@@ -1,7 +1,7 @@
 """
 Import dependencies
 """
-from menu import Menu
+from program.menu import Menu
 
 """
 Main is the entry running dependencies from singleton 
