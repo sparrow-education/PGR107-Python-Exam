@@ -12,7 +12,7 @@ class Main:
     def run(self):
         token, user = verify()
         if token:
-            init()
+            init(user)
         else:
             print('Main')
 

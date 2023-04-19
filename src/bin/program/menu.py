@@ -1,5 +1,5 @@
 def display_menu():
-    menu_list = ["Opt 1", "Opt 2", "Opt 3", "Exit"]
+    menu_list = ["Get user", "Opt 2", "Opt 3", "Exit"]
     separator = "-" * 25
     print(separator)
     for i in range(len(menu_list)):
@@ -9,13 +9,13 @@ def display_menu():
     return menu_list
 
 
-def run_program():
+def run_program(user):
     display_menu()
     while True:
         val = input("Enter choice: ")
 
         if val == "1":
-            print(1)
+            print(f"Current logged in: %s" % user.get_user())
         elif val == "2":
             print(2)
         elif val == "3":
