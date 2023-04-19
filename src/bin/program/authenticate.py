@@ -22,17 +22,18 @@ def verify():
         logged_in = True
         return logged_in, current
     else:
-        print(f"Couldn't find {usr}")
+        print(f"Couldn't find '{usr}'")
         val = input("Create user y/n: ")
         # TODO: Sentinel value of while may be 'choice' or 'True' not decided yet
         choice = ['y', 'n']
         val = val.strip().lower()
         while True:
             if val == 'y':
-                # TODO: When successfully created a new user, should return
-                if create():
+                token, account = create()
+                if token:
                     print("\nCreate successful!\n")
                     logged_in = True
+                    current = new_user.User(str(account.keys()), str(account.values()))
                 else:
                     print("\nCreate unsuccessful!\n")
                     logged_in = False

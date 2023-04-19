@@ -8,24 +8,27 @@ file_path = folder_path + file_name
 abspath = os.path.abspath(file_path)
 
 
-def write_to_file(usr, pw):
+def write_to_file(usr: str, pw: str) -> tuple[bool, dict]:
     try:
         token = False
+        account: {str, str} = {}
         if not usr or not pw:
             print("Username and password cannot be empty")
-            return token
+            return token, account
+
         with open(file_path, 'a') as f:
+            account = {usr: pw}
             f.write(f"{usr}, {pw} \n")
             token = True
-        return token
+        return token, account
     except IOError or Exception as e:
         print(f'Writing error: {e}')
 
 
-def read_from_file(usr, pw):
+def read_from_file(usr: str, pw: str) -> tuple[bool, dict]:
     try:
         token = False
-        account = {}
+        account: {str, str} = {}
         # Safeguard
         if not usr or not pw:
             print("Username and password cannot be empty")

@@ -10,4 +10,4 @@ class User:
         return list(self.password)[0]
 
     def __str__(self):
-        return list(self.username)[0]
+        return f"{list(self.username)[0]}"

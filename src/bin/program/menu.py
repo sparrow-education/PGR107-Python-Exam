@@ -1,3 +1,6 @@
+from . import user as new_user
+
+
 def display_menu():
     menu_list = ["Get user", "Opt 2", "Opt 3", "Exit"]
     separator = "-" * 25
@@ -9,7 +12,7 @@ def display_menu():
     return menu_list
 
 
-def run_program(user):
+def run_program(user: new_user) -> None:
     display_menu()
     while True:
         val = input("Enter choice: ")
@@ -25,3 +28,24 @@ def run_program(user):
             return
         else:
             print("N/A")
+
+
+def boarding() -> bool:
+    menu = {
+        '': 'Welcome!\n',
+        '1': 'Log in',
+        '2': 'Exit',
+    }
+    print('-' * 25)
+    for key, v in menu.items():
+        print(f"%s %s" % (key, v))
+    print('-' * 25)
+    while True:
+        val = input("\nSelect an option: ")
+        if val.strip() in menu.keys():
+            if val == '1':
+                return True
+            elif val == '2':
+                return False
+        else:
+            print('N/A')
