@@ -9,8 +9,8 @@ abspath = os.path.abspath(file_path)
 
 
 def write_to_file(usr, pw):
-    token = False
     try:
+        token = False
         if not usr or not pw:
             print("Username and password cannot be empty")
             return token
@@ -20,7 +20,6 @@ def write_to_file(usr, pw):
         return token
     except IOError or Exception as e:
         print(f'Writing error: {e}')
-    return token
 
 
 def read_from_file(usr, pw):

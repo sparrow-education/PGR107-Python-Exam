@@ -14,7 +14,7 @@ def verify():
 
     token, account = make.read_from_file(usr, pw)
     logged_in = False
-    current = {}
+    current = None
 
     if token:
         current = new_user.User(account.keys(), account.values())
@@ -38,7 +38,7 @@ def verify():
                     logged_in = False
                 return logged_in, current
             elif val == 'n':
-                return logged_in
+                return logged_in, current
             else:
                 print("Not a valid option!")
                 val = input("Create user y/n: ")

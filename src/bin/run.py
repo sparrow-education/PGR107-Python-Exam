@@ -11,7 +11,7 @@ Main is the entry running dependencies from singleton
 class Main:
     def run(self):
         token, user = verify()
-        if token:
+        if token and user is not None:
             init(user)
         else:
             print('Main')
