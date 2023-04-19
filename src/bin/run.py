@@ -10,7 +10,8 @@ Main is the entry running dependencies from singleton
 
 class Main:
     def run(self):
-        if verify():
+        token, user = verify()
+        if token:
             init()
         else:
             print('Main')

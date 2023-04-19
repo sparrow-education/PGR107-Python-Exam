@@ -4,22 +4,23 @@ folder_path = 'resources/'
 file_name = 'userdb.txt'
 
 file_path = folder_path + file_name
-
+# TODO: Is absolute path needed or will content root suffice?
 abspath = os.path.abspath(file_path)
 
 
 def write_to_file(usr, pw):
+    token = False
     try:
         if not usr or not pw:
             print("Username and password cannot be empty")
-            return
-        flag = False
+            return token
         with open(file_path, 'a') as f:
             f.write(f"{usr}, {pw} \n")
-            flag = True
-        return flag
+            token = True
+        return token
     except IOError or Exception as e:
         print(f'Writing error: {e}')
+    return token
 
 
 def read_from_file(usr, pw):
@@ -46,7 +47,7 @@ def read_from_file(usr, pw):
 
 def delete_data():
     try:
-        with open(abspath, 'w') as f:
+        with open(file_path, 'w') as f:
             f.write('')
     except IOError as e:
         print(f'Could not delete file: {e}')

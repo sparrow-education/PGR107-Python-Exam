@@ -11,32 +11,34 @@ def create():
 def verify():
     usr = input("Enter user: ")
     pw = input("Enter password: ")
+
     token, account = make.read_from_file(usr, pw)
     logged_in = False
+    current = {}
+
     if token:
         current = new_user.User(account.keys(), account.values())
         print(f"Welcome back, {str(current.get_user()).capitalize()}!")
         logged_in = True
-        return logged_in
+        return logged_in, current
     else:
         print(f"Couldn't find {usr}")
         val = input("Create user y/n: ")
-
+        # TODO: Sentinel value of while may be 'choice' or 'True' not decided yet
         choice = ['y', 'n']
         val = val.strip().lower()
         while True:
             if val == 'y':
+                # TODO: When successfully created a new user, should return
                 if create():
                     print("\nCreate successful!\n")
                     logged_in = True
                 else:
                     print("\nCreate unsuccessful!\n")
                     logged_in = False
-                return logged_in
+                return logged_in, current
             elif val == 'n':
                 return logged_in
             else:
                 print("Not a valid option!")
                 val = input("Create user y/n: ")
-
-
