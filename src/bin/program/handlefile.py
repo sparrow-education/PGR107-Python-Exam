@@ -1,7 +1,7 @@
 import os
 
-folder_path = '../resources/'
-file_name = '../resources/userdb.txt'
+folder_path = 'resources/'
+file_name = 'userdb.txt'
 
 file_path = folder_path + file_name
 
@@ -14,7 +14,7 @@ def write_to_file(usr, pw):
             print("Username and password cannot be empty")
             return
         flag = False
-        with open(abspath, 'a') as f:
+        with open(file_path, 'a') as f:
             f.write(f"{usr}, {pw} \n")
             flag = True
         return flag
@@ -31,7 +31,7 @@ def read_from_file(usr, pw):
             print("Username and password cannot be empty")
             return token, account
 
-        with open(abspath, 'rt') as f:
+        with open(file_path, 'rt') as f:
             for line in f:
                 line = line.strip().replace(",", "")  # split comma
                 usr_data, usr_pw = line.split()  # tokenize usr + pw
