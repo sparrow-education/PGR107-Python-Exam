@@ -13,7 +13,9 @@ def run_program():
         for line in redacted_text:
             file.write(line + "\n")
 
+    print("-----------------------------------------")
     print("Check out new redacted text file named; redacted_random_text")
+    print("-----------------------------------------")
 
 def display_info():
     print("Welcome to the redacted text program.")
