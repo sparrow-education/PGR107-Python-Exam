@@ -2,7 +2,19 @@ Password
 Social Security Number (or SSN)
 Credit card number
 Bank account number
+Confidential
+Contains
+secret
+information
+document
+information
+operation
+operations
+Proprietary
 Date of birth
+account
+strategic
+non-disclosure
 Home address
 Personal email address
 Driver's license number
@@ -38,3 +50,6 @@ Customer list
 Business strategy
 Market research
 Merger and acquisition information
+
+
+
