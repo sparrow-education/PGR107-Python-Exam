@@ -31,18 +31,26 @@ def run_program(user: new_user) -> None:
 
 
 def boarding() -> bool:
+    txt = """
+    \u250C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510
+    \u2502                    \u2502
+    \u2502  Welcome to PGR107 \u2502
+    \u2502                    \u2502
+    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518
+    """
     menu = {
-        '': 'Welcome!\n',
+        '': f'{txt}\n',
         '1': 'Log in',
         '2': 'Exit',
     }
-    print('-' * 25)
+    print('-' * 35)
     for key, v in menu.items():
         print(f"%s %s" % (key, v))
-    print('-' * 25)
+    print('-' * 35)
     while True:
         val = input("\nSelect an option: ")
-        if val.strip() in menu.keys():
+        val = val.strip()
+        if val in menu.keys():
             if val == '1':
                 return True
             elif val == '2':

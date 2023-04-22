@@ -9,40 +9,52 @@ abspath = os.path.abspath(file_path)
 
 
 def write_to_file(usr: str, pw: str) -> tuple[bool, dict]:
+    """
+    Function appends new userinfo to existing text file
+    :param usr: input new username
+    :param pw:  input new user password
+    :return:  tuple containing boolean and new user
+    """
     try:
         token = False
         account: {str, str} = {}
-        if not usr or not pw:
-            print("Username and password cannot be empty")
-            return token, account
 
-        with open(file_path, 'a') as f:
-            account = {usr: pw}
-            f.write(f"{usr}, {pw} \n")
-            token = True
-        return token, account
+        if usr.isalnum() and pw.isalnum():
+
+            with open(file_path, 'a') as file:             # mode: append to existing file
+                account = {usr: pw}
+                file.write(f"{usr}, {pw}\n")
+                token = True
+
+        return token, account                              # return tuple with boolean and dictionary regardless
     except IOError or Exception as e:
         print(f'Writing error: {e}')
 
 
 def read_from_file(usr: str, pw: str) -> tuple[bool, dict]:
+    """
+    Function reads from a file, the parameter is typed declared with the expecting returning value.
+    :param usr: username
+    :param pw:  password
+    :return:  a tuple with boolean and dictionary
+    """
     try:
         token = False
         account: {str, str} = {}
-        # Safeguard
-        if not usr or not pw:
-            print("Username and password cannot be empty")
-            return token, account
 
-        with open(file_path, 'rt') as f:
-            for line in f:
-                line = line.strip().replace(",", "")  # split comma
-                usr_data, usr_pw = line.split()  # tokenize usr + pw
-                if usr == usr_data and pw == usr_pw:  # evaluate input ~ data
-                    account = {usr_data: usr_pw}
-                    token = True
-                    break
-        return token, account
+        # Safeguard
+        if usr.isalnum() and pw.isalnum():                # Only alphabet + numerical vals
+
+            with open(file_path, 'rt') as file:           # auto closable resource, mode: read-text = default
+                for line in file:
+                    line = line.strip().replace(",", "")  # split comma
+                    usr_data, usr_pw = line.split()       # tokenize usr + pws
+                    if usr == usr_data and pw == usr_pw:  # evaluate input ~ data
+                        account = {usr_data: usr_pw}      # args from destructuring a list[0] - [1]
+                        token = True
+                        break
+
+        return token, account                             # Return bool and dictionary regardless
     except IOError or Exception as e:
         print(f"Reading error: {e}")
 
