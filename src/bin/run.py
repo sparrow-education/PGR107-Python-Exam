@@ -3,6 +3,7 @@ Import dependencies
 """
 from program.authenticate import verify
 from program.menu import *
+from program.handlefile import get_file_name
 
 """
 Main class is the entry to the program
@@ -15,9 +16,14 @@ class Main:
     if the user decide to do so.
     """
     def login(self):
-        token = boarding()
-        if token:
-            self.run()
+        file_exist = get_file_name()
+        if file_exist:
+            token = boarding()
+            if token:
+                self.run()
+
+        else:
+            print(f"File does not exists")
 
     def run(self):
         """

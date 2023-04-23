@@ -59,9 +59,21 @@ def read_from_file(usr: str, pw: str) -> tuple[bool, dict]:
         print(f"Reading error: {e}")
 
 
-def delete_data():
-    try:
-        with open(file_path, 'w') as f:
-            f.write('')
-    except IOError as e:
-        print(f'Could not delete file: {e}')
+
+
+def get_file_name() -> bool:
+    val = input("\nPlease enter your 'file' name without extension: \n")
+    val = val.strip().lower()
+
+    if val:
+        val += '.txt'
+
+        file = f"resources/{val}"
+        if os.path.exists(file):
+            return True
+
+    return False
+
+
+
+

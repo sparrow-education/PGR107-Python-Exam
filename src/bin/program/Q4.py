@@ -1,4 +1,5 @@
 def equality():
+    print("\nCompare two string\n")
     val1 = input("Enter first word: ")
     val2 = input("Enter second word: ")
 
@@ -10,7 +11,7 @@ def equality():
     if (val1.islower() and val2.islower()) and (val1.isalpha() and val2.isalpha()):
         unique = is_unique(val1, val2)
         shared = is_shared(val1, val2)
-        non_occuring(unique, shared)
+        non_occurring(unique, shared)
     else:
         print(f"Input error, '{val1}' AND '{val2}' has to be a lowercase alphabet.")
         return
@@ -61,7 +62,7 @@ def is_shared(word1: str, word2: str) -> list[str]:
     return sort_shared
 
 
-def non_occuring(list1: list, list2: list) -> None:
+def non_occurring(list1: list, list2: list) -> None:
     """
     1. Convert string literal into a set of strings.
     2. Then using 'union' to unify all characters from both lists
@@ -85,6 +86,6 @@ def non_occuring(list1: list, list2: list) -> None:
             print(f"%s" % c, end=", ")
     else:
         print(None)
+    print()
 
 
-equality()

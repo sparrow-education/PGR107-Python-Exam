@@ -1,3 +1,4 @@
+from program import Q3, Q4
 from . import user as new_user
 
 
@@ -20,14 +21,35 @@ def run_program(user: new_user) -> None:
         if val == "1":
             print(f"Current logged in: %s" % user.get_user())
         elif val == "2":
-            print(2)
+            question_three()
         elif val == "3":
-            print(3)
+            question_four()
         elif val == "4":
             print("See you again!")
             return
         else:
             print("N/A")
+        display_menu()
+
+
+def question_three():
+    while True:
+        Q3.palindrome()
+        val = input("Run again? y/n: ")
+        val.strip().lower()
+
+        if val == 'n':
+            break
+
+
+def question_four():
+    while True:
+        Q4.equality()
+        val = input("Run again? y/n: ")
+        val.strip().lower()
+
+        if val == 'n':
+            break
 
 
 def boarding() -> bool:

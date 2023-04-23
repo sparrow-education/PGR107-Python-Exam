@@ -1,5 +1,5 @@
 def palindrome():
-    print("Welcome to Palindrome checker!")
+    print("\nWelcome to Palindrome checker!\n")
     val = input("Enter a word: ")
     val = val.strip().lower()
     is_palindrome(val)
@@ -34,4 +34,3 @@ def is_palindrome(word: str) -> bool:
         return False
 
 
-palindrome()
