@@ -1,14 +1,14 @@
-from program import Q1, Q3, Q4
+from program import Q1, Q2, Q3, Q4
 from . import user as new_user
 
 
 def display_menu():
-    menu_list = ["Get user", "Q3", "Q4", "Exit"]
+    menu_list = ["Q1", "Q2", "Q3", "Q4", "Q5", "Get user", "Exit"]
     separator = "-" * 30
     print(separator)
     for i in range(len(menu_list)):
         val = menu_list[i]
-        print(f"|%4s - %-21.30s|" % (i + 1, val))
+        print(f"|%4s - %-21.30s|" % (f"{'q' if (i+1) == 7 else i + 1}", val))
     print(separator)
     return menu_list
 
@@ -18,15 +18,19 @@ def run_program(user: new_user) -> None:
     while True:
         val = input("Enter choice: ")
 
-        if val == "0":
-            print(f"Current logged in: %s" % user.get_user())
-        elif val == "1":
+        if val == "1":
             question_one()
+        elif val == "2":
+            question_two()
         elif val == "3":
             question_three()
         elif val == "4":
             question_four()
         elif val == "5":
+            return
+        elif val == "6":
+            print(f"Current logged in: %s" % user.get_user())
+        elif val == "q":
             print("See you again!")
             return
         else:
@@ -37,6 +41,16 @@ def run_program(user: new_user) -> None:
 def question_one():
     while True:
         Q1.run_program()
+        val = input("Run again? y/n: ")
+        val.strip().lower()
+
+        if val == 'n':
+            break
+
+
+def question_two():
+    while True:
+        Q2.Bug.main()
         val = input("Run again? y/n: ")
         val.strip().lower()
 
