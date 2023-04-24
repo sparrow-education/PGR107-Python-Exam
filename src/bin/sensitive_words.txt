@@ -1,0 +1,55 @@
+Password
+Social Security Number (or SSN)
+Credit card number
+Bank account number
+Confidential
+Contains
+secret
+information
+document
+information
+operation
+operations
+Proprietary
+Date of birth
+account
+strategic
+non-disclosure
+Home address
+Personal email address
+Driver's license number
+Passport number
+Confidential
+Proprietary
+Classified
+Restricted
+Trade secret
+Private
+Privileged
+Non-disclosure agreement (or NDA)
+Personal identification number (or PIN)
+Medical record number
+Patient information
+Tax identification number (or TIN)
+Mother's maiden name
+Biometric data
+Genetic information
+Health insurance number
+Employee identification number
+Security question answers
+Financial statement
+Salary information
+Sexual orientation
+Racial or ethnic origin
+Political opinions
+Religious or philosophical beliefs
+Trade union membership
+Criminal record
+National identification number
+Customer list
+Business strategy
+Market research
+Merger and acquisition information
+
+
+
