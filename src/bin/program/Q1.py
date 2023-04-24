@@ -8,8 +8,7 @@ def run_program():
     read_random_text_from_file(random_text_list)
 
     redacted_text = compare_words_in_lists(sensitive_word_list, random_text_list)
-
-    with open("redacted_random_text.txt", "w") as file:
+    with open("resources/../resources/redacted_random_text.txt", "w") as file:
         for line in redacted_text:
             file.write(line + "\n")
 
@@ -28,7 +27,8 @@ def read_sensitive_words_from_file(sensitive_word_list):
     while True:
         try:
             filename = input("Type in the text file that contain the sensitive words: ")
-            with open(filename, "r") as file:
+            folder_path = f'resources/../resources/{filename}.txt'
+            with open(folder_path, "r") as file:
                 for word in file:
                     sensitive_word_list.append(word.strip())
             break
@@ -41,7 +41,8 @@ def read_random_text_from_file(random_text_list):
     while True:
         try:
             filename = input("Type in the text file that needs redacting: ")
-            with open(filename, "r") as file:
+            folder_path = f'resources/../resources/{filename}.txt'
+            with open(folder_path, "r") as file:
                 for word in file:
                     random_text_list.append(word.strip())
             break
@@ -58,5 +59,3 @@ def compare_words_in_lists(sensitive_word_list, random_text_list):
         redacted_text.append(text)
     return redacted_text
 
-
-run_program()

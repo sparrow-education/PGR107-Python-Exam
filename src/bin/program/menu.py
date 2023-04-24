@@ -1,4 +1,4 @@
-from program import Q3, Q4
+from program import Q1, Q3, Q4
 from . import user as new_user
 
 
@@ -18,18 +18,30 @@ def run_program(user: new_user) -> None:
     while True:
         val = input("Enter choice: ")
 
-        if val == "1":
+        if val == "0":
             print(f"Current logged in: %s" % user.get_user())
-        elif val == "2":
-            question_three()
+        elif val == "1":
+            question_one()
         elif val == "3":
-            question_four()
+            question_three()
         elif val == "4":
+            question_four()
+        elif val == "5":
             print("See you again!")
             return
         else:
             print("N/A")
         display_menu()
+
+
+def question_one():
+    while True:
+        Q1.run_program()
+        val = input("Run again? y/n: ")
+        val.strip().lower()
+
+        if val == 'n':
+            break
 
 
 def question_three():
