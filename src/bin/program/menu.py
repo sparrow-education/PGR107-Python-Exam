@@ -3,12 +3,12 @@ from . import user as new_user
 
 
 def display_menu():
-    menu_list = ["Get user", "Opt 2", "Opt 3", "Exit"]
-    separator = "-" * 25
+    menu_list = ["Get user", "Q3", "Q4", "Exit"]
+    separator = "-" * 30
     print(separator)
     for i in range(len(menu_list)):
         val = menu_list[i]
-        print(f"|%4s - %-16.30s|" % (i + 1, val))
+        print(f"|%4s - %-21.30s|" % (i + 1, val))
     print(separator)
     return menu_list
 

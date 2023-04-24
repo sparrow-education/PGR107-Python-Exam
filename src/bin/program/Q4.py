@@ -1,13 +1,13 @@
 def equality():
-    print("\nCompare two string\n")
+    """
+    Safety guard the Pythonic way for input error
+    Check both inputs for empty strings AND truthiness
+    I assume we are comparing the text literal not the actual ASCII value i.e. 'p' vs 'P'
+    """
+    print("\nCompare two string for equality!\n")
     val1 = input("Enter first word: ")
     val2 = input("Enter second word: ")
 
-    """
-        Safety guard the Pythonic way
-        Check both inputs for empty strings AND truthiness
-        I assume we are comparing the text literal not the actual ASCII value i.e. 'p' vs 'P'
-    """
     if (val1.islower() and val2.islower()) and (val1.isalpha() and val2.isalpha()):
         unique = is_unique(val1, val2)
         shared = is_shared(val1, val2)
@@ -87,5 +87,3 @@ def non_occurring(list1: list, list2: list) -> None:
     else:
         print(None)
     print()
-
-

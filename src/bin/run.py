@@ -33,7 +33,8 @@ class Main:
         if token and user is not None:
             run_program(user)
         else:
-            print('Main')
+            # Functionalities not implemented
+            print('Back - To - Main')
 
 
 m = Main()
