@@ -29,10 +29,12 @@ def displaying_words(word, guessed_letters):
 
 ## main function to play the-game
 def play_game():
+    folder_path = ''
     while True:
         try:
             filtype = input("Enter the filename containing the words (e.x..words.txt):\n>>")
-            word = handle_file(filtype) 
+            folder_path += f'resources/../resources/{filtype}.txt'
+            word = handle_file(folder_path)
             break
             
         except Exception  as e:
@@ -91,7 +93,7 @@ def play_game():
         print(f"Game over! The word was: {word}")
 
 
-play_game()        
+
 
 ##------- End_of_Program ---------- ##
         

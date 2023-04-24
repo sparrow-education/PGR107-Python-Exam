@@ -1,4 +1,4 @@
-from program import Q1, Q2, Q3, Q4
+from program import Q1, Q2, Q3, Q4, Q5
 from . import user as new_user
 
 
@@ -27,7 +27,7 @@ def run_program(user: new_user) -> None:
         elif val == "4":
             question_four()
         elif val == "5":
-            return
+            question_five()
         elif val == "6":
             print(f"Current logged in: %s" % user.get_user())
         elif val == "q":
@@ -77,6 +77,15 @@ def question_four():
         if val == 'n':
             break
 
+
+def question_five():
+    while True:
+        Q5.play_game()
+        val = input("Run again? y/n: ")
+        val.strip().lower()
+
+        if val == 'n':
+            break
 
 def boarding() -> bool:
     txt = """
